@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Додайте залежності для Jackson та JAXB
+    implementation 'javax.xml.bind:jaxb-api:2.3.1'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.0'
+
+    // Залежності для JUnit (які вже є в вашому файлі)
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'junit:junit:4.13.1'
+
+    implementation 'mysql:mysql-connector-java:8.0.28'
+    testImplementation 'org.testng:testng:7.1.0'
+}
+
+test {
+    useTestNG()
+}
